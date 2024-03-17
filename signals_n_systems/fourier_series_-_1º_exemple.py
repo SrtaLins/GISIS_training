@@ -1,11 +1,11 @@
 import numpy as np
 # para trabalhar com matrizes
 
-import matplotlib.pyplot as mp
+import matplotlib.pyplot as plt
 # para gerar os gráficos, e o módulo pyplot para gerar os gráficos de forma similar ao matlab
 
 # Comece definindo as variáveis:
-domain = 1e6
+domain = int(1e6)
 """
 essa variável vai indicar a quantidade de pontos no intervalo de tempo. é utilizado um valor
 alto (nesse caso 1.000.000) para uma representação mais precisa da função.
@@ -36,7 +36,7 @@ Dessa forma o espaço de memória já fica reservado.
 """
 
 for f in frequencie:
-    signal += np.cos(2*np.pi*f*t)
+    signal += np.sin(2*np.pi*f*t)
 """
 Será feito um loop passando item da variável frequencie, utilizando o f para realizar essa ação.
 signal será preenchida com o módulo do cos da frequencia*tempo em radianos.
@@ -44,5 +44,23 @@ a conversão para radianos é feita com a partir da multiplicação do produto d
 por 2*np.pi.
 """
 
+# Agora a plotagem dos dados
+xloc = np.linspace(-np.pi, np.pi, 9)
 
-print(frequencie)
+xlab = [r"$-\pi$", r"$\dfrac{-3\pi}{4}$", r"$\dfrac{-\pi}{2}$", r"$\dfrac{-\pi}{4}$",
+        r"$0$", r"$\dfrac{\pi}{4}$", r"$\dfrac{\pi}{2}$", r"$\dfrac{3\pi}{4}$", r"$-\pi$"]
+
+fig, ax = plt.subplots(num = "Simple signal", figsize = (15,5))
+
+ax.plot(t, signal)
+
+ax.set_xticks(xloc)
+ax.set_xticklabels(xlab)
+ax.set_xlim([-np.pi, np.pi])
+
+ax.set_xlabel("t [s]", fontsize = 15)
+ax.set_ylabel("Amplitude", fontsize = 15)
+
+fig.tight_layout()
+plt.show()
+
