@@ -1,8 +1,6 @@
-import numpy as np
-# para trabalhar com matrizes
+import numpy as np  # para trabalhar com matrizes
 
-import matplotlib.pyplot as plt
-# para gerar os gráficos, e o módulo pyplot para gerar os gráficos de forma similar ao matlab
+import matplotlib.pyplot as plt  # gera os gráficos, e o módulo pyplot para gerar os gráficos de forma similar ao matlab
 
 # Comece definindo as variáveis:
 domain = int(1e6)
@@ -47,14 +45,14 @@ por 2*np.pi.
 # Agora a plotagem dos dados
 xloc = np.linspace(-np.pi, np.pi, 9)
 """
-xloc determina quais os pontos do eixo x serão marcados. Para isso usamos a linspace.
+xloc é a variável que contém quais os pontos do eixo x serão marcados. Para isso usamos a linspace.
 Poderiamos utilizar outras funções também. Como array.
 """
 
 xlab = [r"${}$".format(sym) for sym in ["-\pi", "\dfrac{-3\pi}{4}", "\dfrac{-\pi}{2}", "\dfrac{-\pi}{4}",
         "0", "\dfrac{\pi}{4}", "\dfrac{\pi}{2}", "\dfrac{3\pi}{4}", "\pi"]]
 """
-xlab determina qual o rótulos dos pontos do eixos x, que definimos com o xloc.
+xlab é a variável que contém os rótulos dos pontos do eixos x.
 Utilizamos o r"${}$" para aplicar a notação LaTex no rótulo. Esse linha também poderia ser escrita como:
     xlab = [r"$-\pi$", r"$\dfrac{-3\pi}{4}$", r"$\dfrac{-\pi}{2}$", r"$\dfrac{-\pi}{4}$", 
             r"$0$", r"$\dfrac{\pi}{4}$", r"$\dfrac{\pi}{2}$", r"$\dfrac{3\pi}{4}$", r"$-\pi$"]
@@ -63,15 +61,19 @@ o fomart(sym) foi inserido para que não seja necessário repetir o r"${}$" em t
 
 """
 
-fig, ax = plt.subplots(num="Simple signal", figsize=(15, 5))
+fig, ax = plt.subplots(num="Fourier Series - 1º Exemple", figsize=(15, 5))
+"""
+fig cria a aba onde o gráfico será plotado. 
+O primeiro elemento é o título e o segundo o tamanho.
+"""
 
-ax.plot(t, signal)
+ax.plot(t, signal)  # Definindo quais elementos serão plotados no gráfico
 
-ax.set_xticks(xloc)
-ax.set_xticklabels(xlab)
-ax.set_xlim([-np.pi, np.pi])
-ax.set_xlabel("t [s]", fontsize=15)
-ax.set_ylabel("Amplitude", fontsize=15)
+ax.set_xticks(xloc)  # Definindo os marcadores do eixo x
+ax.set_xticklabels(xlab)  # Definindo os rótulos do eixo x
+ax.set_xlim([-np.pi, np.pi])  # Definindo os limites do eixo x
+ax.set_xlabel("t [s]", fontsize=15)  # Definindo título do eixo x
+ax.set_ylabel("Amplitude", fontsize=15)  # Definindo título do eixo y
 
-fig.tight_layout()
+fig.tight_layout()  # Serve para ajustar todos os elementos que adicionamentos acima à área da figura
 plt.show()
