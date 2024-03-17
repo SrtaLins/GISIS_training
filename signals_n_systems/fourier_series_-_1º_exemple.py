@@ -10,7 +10,7 @@ a0 = 2*np.sinh(np.pi)/np.pi
 
 signal = a0+np.zeros(domain)
 
-rf = np.exp(-t)
+rf = np.exp(t)+4
 
 for n in range(1, 500):
     an = a0*((-1)**n / (1 + n**2))
@@ -26,7 +26,7 @@ xlab = [r"${}$".format(sym) for sym in (["-\pi", "-\dfrac{3\pi}{4}", "-\dfrac{\p
 
 fig, ax = plt.subplots(num="Fourier Series - 1º Exemple", figsize=(16, 5))
 
-ax.plot(t, signal - np.pi, label="Fourier Serie")
+ax.plot(t, signal, label="Fourier Serie")
 ax.plot(t, rf, "--", label="Real Function")
 
 ax.set_xlim([-np.pi, np.pi])
