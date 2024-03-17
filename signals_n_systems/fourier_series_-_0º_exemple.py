@@ -49,7 +49,7 @@ xloc é a variável que contém quais os pontos do eixo x serão marcados. Para 
 Poderiamos utilizar outras funções também. Como array.
 """
 
-xlab = [r"${}$".format(sym) for sym in ["-\pi", "\dfrac{-3\pi}{4}", "\dfrac{-\pi}{2}", "\dfrac{-\pi}{4}",
+xlab = [r"${}$".format(sym) for sym in ["-\pi", "-\dfrac{3\pi}{4}", "\dfrac{-\pi}{2}", "\dfrac{-\pi}{4}",
         "0", "\dfrac{\pi}{4}", "\dfrac{\pi}{2}", "\dfrac{3\pi}{4}", "\pi"]]
 """
 xlab é a variável que contém os rótulos dos pontos do eixos x.
@@ -61,7 +61,7 @@ o fomart(sym) foi inserido para que não seja necessário repetir o r"${}$" em t
 
 """
 
-fig, ax = plt.subplots(num="Fourier Series - 1º Exemple", figsize=(15, 5))
+fig, ax = plt.subplots(num="Fourier Series - 0º Exemple", figsize=(15, 5))
 """
 fig cria a aba onde o gráfico será plotado. 
 O primeiro elemento é o título e o segundo o tamanho.
