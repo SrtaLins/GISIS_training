@@ -46,21 +46,32 @@ por 2*np.pi.
 
 # Agora a plotagem dos dados
 xloc = np.linspace(-np.pi, np.pi, 9)
+"""
+xloc determina quais os pontos do eixo x serão marcados. Para isso usamos a linspace.
+Poderiamos utilizar outras funções também. Como array.
+"""
 
-xlab = [r"$-\pi$", r"$\dfrac{-3\pi}{4}$", r"$\dfrac{-\pi}{2}$", r"$\dfrac{-\pi}{4}$",
-        r"$0$", r"$\dfrac{\pi}{4}$", r"$\dfrac{\pi}{2}$", r"$\dfrac{3\pi}{4}$", r"$-\pi$"]
+xlab = [r"${}$".format(sym) for sym in ["-\pi", "\dfrac{-3\pi}{4}", "\dfrac{-\pi}{2}", "\dfrac{-\pi}{4}",
+        "0", "\dfrac{\pi}{4}", "\dfrac{\pi}{2}", "\dfrac{3\pi}{4}", "\pi"]]
+"""
+xlab determina qual o rótulos dos pontos do eixos x, que definimos com o xloc.
+Utilizamos o r"${}$" para aplicar a notação LaTex no rótulo. Esse linha também poderia ser escrita como:
+    xlab = [r"$-\pi$", r"$\dfrac{-3\pi}{4}$", r"$\dfrac{-\pi}{2}$", r"$\dfrac{-\pi}{4}$", 
+            r"$0$", r"$\dfrac{\pi}{4}$", r"$\dfrac{\pi}{2}$", r"$\dfrac{3\pi}{4}$", r"$-\pi$"]
+o fomart(sym) foi inserido para que não seja necessário repetir o r"${}$" em todos os elementos.
 
-fig, ax = plt.subplots(num = "Simple signal", figsize = (15,5))
+
+"""
+
+fig, ax = plt.subplots(num="Simple signal", figsize=(15, 5))
 
 ax.plot(t, signal)
 
 ax.set_xticks(xloc)
 ax.set_xticklabels(xlab)
 ax.set_xlim([-np.pi, np.pi])
-
-ax.set_xlabel("t [s]", fontsize = 15)
-ax.set_ylabel("Amplitude", fontsize = 15)
+ax.set_xlabel("t [s]", fontsize=15)
+ax.set_ylabel("Amplitude", fontsize=15)
 
 fig.tight_layout()
 plt.show()
-
